@@ -1,0 +1,31 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.User = void 0;
+
+var _faker = _interopRequireDefault(require("faker"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+class User {
+  constructor() {
+    _defineProperty(this, "color", '#1890ff');
+
+    this.name = _faker.default.name.firstName();
+    this.location = {
+      lat: parseFloat(_faker.default.address.latitude()),
+      lng: parseFloat(_faker.default.address.longitude())
+    };
+  }
+
+  markerContent() {
+    return `username : ${this.name}`;
+  }
+
+}
+
+exports.User = User;
